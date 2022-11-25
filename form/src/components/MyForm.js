@@ -7,9 +7,6 @@ const MyForm = () => {
   const [email, setEmail] = useState();
 
   const handleName = (e) => {
-    console.log("Mudou o nome");
-    console.log(e);
-    console.log(e.target.value);
     setName(e.target.value);
   };
   
