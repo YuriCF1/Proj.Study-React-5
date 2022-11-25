@@ -6,6 +6,7 @@ const MyForm = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
 
+  // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
     setName(e.target.value);
   };
