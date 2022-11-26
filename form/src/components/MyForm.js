@@ -10,8 +10,9 @@ const MyForm = () => {
   const handleName = (e) => {
     setName(e.target.value);
   };
-  
-  console.log('NOME', name);
+
+  console.log("NOME", name);
+  console.log('Email', email);
 
   return (
     <div>
@@ -29,7 +30,15 @@ const MyForm = () => {
         {/* Label envolvendo input, mais sugerida na documentação do react  */}
         <label>
           <span>Email</span>
-          <input type="email" name="email" placeholder="Digite o seu email" />
+          {/* <input type="email" name="email" placeholder="Digite o seu email" /> */}
+          <input
+            type="email"
+            name="email"
+            placeholder="Digite o seu email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
         </label>
         <input type="submit" name="" id="" value="Enviar" />
       </form>
