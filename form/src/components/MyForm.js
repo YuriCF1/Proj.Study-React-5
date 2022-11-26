@@ -31,6 +31,8 @@ const MyForm = () => {
         <label>
           <span>Email</span>
           {/* <input type="email" name="email" placeholder="Digite o seu email" /> */}
+
+          {/* Função pode ser feita inline já que alguns valores de variáveis não precisam de tratamento */}
           <input
             type="email"
             name="email"
