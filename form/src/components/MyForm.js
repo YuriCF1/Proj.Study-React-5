@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./MyForm.css";
 
-const MyForm = () => {
+const MyForm = ({user}) => {
+  // 6 - Controlled inputs
+  //Tratando os dados vindo pelas props 
+  
   // 3 - gerenciamento de dados
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [name, setName] = useState(user ? user.name : '');
+  const [email, setEmail] = useState(user ? user.email : '');
 
   // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
@@ -31,6 +34,7 @@ const MyForm = () => {
             name="name"
             placeholder="Digite seu nome"
             onChange={handleName}
+            value={name}
           />
         </div>
         {/* Label envolvendo input, mais sugerida na documentação do react  */}
@@ -44,6 +48,7 @@ const MyForm = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            value={email}
           />
         </label>
         <input type="submit" name="" id="" value="Enviar" />
