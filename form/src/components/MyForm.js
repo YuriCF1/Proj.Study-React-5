@@ -9,15 +9,21 @@ const MyForm = () => {
   // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
     setName(e.target.value);
+    // console.log(e.target.value);
   };
+  
+  // console.log(email);
 
-  console.log("NOME", name);
-  console.log('Email', email);
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Enviando o formulário');
+    console.log(name, email);
+  }
 
   return (
     <div>
       {/* Criação de form, de com o htmlFor */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nome</label>
           <input
@@ -30,8 +36,6 @@ const MyForm = () => {
         {/* Label envolvendo input, mais sugerida na documentação do react  */}
         <label>
           <span>Email</span>
-          {/* <input type="email" name="email" placeholder="Digite o seu email" /> */}
-
           {/* Função pode ser feita inline já que alguns valores de variáveis não precisam de tratamento */}
           <input
             type="email"
