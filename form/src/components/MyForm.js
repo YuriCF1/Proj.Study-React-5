@@ -3,8 +3,8 @@ import "./MyForm.css";
 
 const MyForm = ({user}) => {
   // 6 - Controlled inputs
-  //Tratando os dados vindo pelas props 
-  
+  //Tratando os dados vindo pelas props. Utilizado para dados que já vem default, uma profissão previamente definida...
+
   // 3 - gerenciamento de dados
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
@@ -15,14 +15,22 @@ const MyForm = ({user}) => {
     // console.log(e.target.value);
   };
   
-  // console.log(email);
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Enviando o formulário');
     console.log(name, email);
-  }
 
+    //Validação...
+    //Envio...
+
+    // 7- Limpar formulário 
+    setName("")
+    setEmail("")
+  };
+
+  console.log(name);
   return (
     <div>
       {/* Criação de form, de com o htmlFor */}
