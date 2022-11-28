@@ -9,6 +9,8 @@ const MyForm = ({user}) => {
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
 
+  const [bio, setBio] = useState("")
+
   // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
     setName(e.target.value);
@@ -20,7 +22,7 @@ const MyForm = ({user}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Enviando o formulário');
-    console.log(name, email);
+    console.log(name, email, bio);
 
     //Validação...
     //Envio...
@@ -28,9 +30,10 @@ const MyForm = ({user}) => {
     // 7- Limpar formulário 
     setName("")
     setEmail("")
+    setBio("")
   };
 
-  console.log(name);
+  // console.log(name);
   return (
     <div>
       {/* Criação de form, de com o htmlFor */}
@@ -58,6 +61,12 @@ const MyForm = ({user}) => {
             }}
             value={email}
           />
+        </label>
+        {/* 8 - Textarea */}
+        <label htmlFor="">
+          <span>Bio:</span>
+        <textarea name="bio" id="" cols="30" rows="10" placeholder="Descrição do usuário" onChange={(e) => setBio(e.target.value)} value={bio}></textarea>
+
         </label>
         <input type="submit" name="" id="" value="Enviar" />
       </form>
