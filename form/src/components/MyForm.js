@@ -11,6 +11,8 @@ const MyForm = ({user}) => {
 
   const [bio, setBio] = useState("")
 
+  const {role, setRole} = useState("")
+
   // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
     setName(e.target.value);
@@ -67,6 +69,16 @@ const MyForm = ({user}) => {
           <span>Bio:</span>
         <textarea name="bio" id="" cols="30" rows="10" placeholder="Descrição do usuário" onChange={(e) => setBio(e.target.value)} value={bio}></textarea>
 
+        </label>
+
+        {/* 9 - Input select */}
+        <label htmlFor="">
+          <span>Função no sistema</span>
+          <select name="role" id="">
+            <option value="user">Usuário</option>
+            <option value="editor">Editor</option>
+            <option value="admin">Administrador</option>
+          </select>
         </label>
         <input type="submit" name="" id="" value="Enviar" />
       </form>
