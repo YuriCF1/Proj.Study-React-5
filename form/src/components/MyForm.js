@@ -8,15 +8,12 @@ const MyForm = ({user}) => {
   // 3 - gerenciamento de dados
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
-
-  const [bio, setBio] = useState("")
-
-  const {role, setRole} = useState("")
+  const [bio, setBio] = useState(user ? user.bio : '')
+  const {role, setRole} = useState(user ? user.role : '')
 
   // Vai ser ativado duas vezes por conta do React Strict Mode
   const handleName = (e) => {
     setName(e.target.value);
-    // console.log(e.target.value);
   };
   
 
@@ -24,7 +21,7 @@ const MyForm = ({user}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Enviando o formulário');
-    console.log(name, email, bio);
+    console.log(name, email, bio, role);
 
     //Validação...
     //Envio...
@@ -74,7 +71,8 @@ const MyForm = ({user}) => {
         {/* 9 - Input select */}
         <label htmlFor="">
           <span>Função no sistema</span>
-          <select name="role" id="">
+          <select name="role" id="" onChange={(e) => setRole(e.target.value)} value={role}>
+            {/* Value que conta para o backend */}
             <option value="user">Usuário</option>
             <option value="editor">Editor</option>
             <option value="admin">Administrador</option>
