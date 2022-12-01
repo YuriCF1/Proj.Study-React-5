@@ -16,8 +16,6 @@ const MyForm = ({user}) => {
     setName(e.target.value);
   };
   
-
-
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Enviando o formulário');
